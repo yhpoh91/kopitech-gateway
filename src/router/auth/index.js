@@ -7,10 +7,16 @@ const { expressAuthenticate: authenticate } = require('kopitech-authentication-c
 
 const router = express.Router({ mergeParams: true });
 
-router.route('/')
-  .get(
-    validate(validator.doSomething),
-    controller.doSomething,
+router.route('/login')
+  .post(
+    validate(validator.loginUser),
+    controller.loginUser,
+  );
+
+router.route('/client')
+  .post(
+    validate(validator.loginClient),
+    controller.loginClient,
   );
 
 module.exports = router;
